@@ -38,12 +38,4 @@ while True:
     message = input()
     sock.sendall(str.encode(message))
     if message == 'exit':
-        sys.exit(0)
-    if message == 'ping':
-        parameter = input("Input command parameters:")
-        sock.sendall(str.encode(parameter))
-        sock.sendall(str.encode(os.system('ping'+' '+ parameter)))
-    if message == 'echo':
-        parameter = input("Input command parameters:")
-        sock.sendall(str.encode(parameter))
-        os.system('echo'+' '+ parameter)
+        sock.close()
